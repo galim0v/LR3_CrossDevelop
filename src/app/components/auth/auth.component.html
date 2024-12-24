@@ -1,0 +1,15 @@
+<form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" />
+    <div *ngIf="authForm.get('email')?.invalid && authForm.get('email')?.touched">
+        Неверный email.
+    </div>
+
+    <label for="password">Пароль:</label>
+    <input id="password" formControlName="password" type="password" />
+    <div *ngIf="authForm.get('password')?.invalid && authForm.get('password')?.touched">
+        Пароль обязателен.
+    </div>
+
+    <button type="submit" [disabled]="authForm.invalid">Войти</button>
+</form>
